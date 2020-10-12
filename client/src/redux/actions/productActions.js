@@ -1,24 +1,21 @@
-import axios from 'axios';
-import apiCall from '../../redux/api';
-import GET_PRODUCT from './actionTypes';
-import GET_PRODUCTS from './actionTypes';
-import PUT_PRODUCT from './actionTypes';
-import POST_PRODUCT  from './actionTypes';
-import DELETE_PRODUCT from './actionTypes';
+import axios from "axios";
+import apiCall from "../../redux/api";
+import * as actionTypes from "./actionTypes";
+const url = `http://localhost:3001/products/`;
 
-const url = `/products/`;
+export const getProducts = () => (dispatch) => {
+  axios
+    .get(url)
+    .then((res) => {
+      // console.log(res.data.products)
+      dispatch({
+        type: actionTypes.GET_PRODUCTS,
+        products: res.data.products,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
-export const getProducts = ()=> dispatch =>{
-    return axios.get(``) 
-}
 
-
-export function getMovies(titulo) {
-    return function(dispatch) {
-      return fetch(`http://www.omdbapi.com/?apikey=20dac387&s=${titulo}`)
-        .then(response => response.json())
-        .then(json => {
-          dispatch({ type: "GET_MOVIES", payload: json });
-        });
-    };
-  };

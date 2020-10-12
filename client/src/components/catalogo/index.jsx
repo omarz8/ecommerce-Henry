@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Category from "../categoria";
 import "./catalogo.css";
 import ProductCard from "../productCard/ProductCard";
 import MenuButton from "./button/button.jsx";
 import { motion } from "framer-motion";
+import { useSelector, useDispatch } from "react-redux";
+import allActions from "../../redux/actions/allActions";
 
-const Catalogue = ({ products, category }) => {
+const Catalogue = () => {
+  const products = useSelector((state) => state.products.products);
+  const dispatch = useDispatch();
+  const category = useSelector((state) => state.category.category);
+
+  useEffect(() => {
+    dispatch(allActions.getProducts(products));
+    dispatch(allActions.getCategory(category));
+  }, []);
+
+  console.log(products);
   const [drop, setDrop] = useState(false);
 
   const toggleMenu = () => {

@@ -12,28 +12,32 @@ import FormCategory from './components/categoryForm';
 //Pages
 import SearchPage from './pages/SearchPage';
 
-function App() {
-  const [product, setProduct] = useState([]);
-  const [category, setCategory] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3001/products/`)
-      .then((res) => {
-        return setProduct(res.data.products);
-      })
-      .catch((err) => {
-        return;
-      });
-    axios
-      .get(`http://localhost:3001/category/`)
-      .then((res) => {
-        return setCategory(res.data.category);
-      })
-      .catch((err) => {
-        return;
-      });
-  }, []);
+
+
+function App() {
+
+  // const [product, setProduct] = useState([]);
+  // const [category, setCategory] = useState([]);
+
+  // useEffect(() => {
+    // axios
+    //   .get(`http://localhost:3001/products/`)
+    //   .then((res) => {
+    //     return setProduct(res.data.products);
+    //   })
+    //   .catch((err) => {
+    //     return;
+    //   });
+  //   axios
+  //     .get(`http://localhost:3001/category/`)
+  //     .then((res) => {
+  //       return setCategory(res.data.category);
+  //     })
+  //     .catch((err) => {
+  //       return;
+  //     });
+  // }, []);
 
   return (
     //No modifique ni elimine las rutas existentes
@@ -43,13 +47,13 @@ function App() {
         <Route path="/search/q/:searchTerm" component={SearchPage} />
         <Route exact path="/products">
           <Catalogue
-            products={product}
-            category={category}
+            // products={product}
+            // category={category}
           />
         </Route>
         <Route exact path="/product/:id">
           <ProductDetail
-            props={product}
+            // props={product}
           />
         </Route>
         <Route exact path="/admin/product/add" render={() => (
@@ -57,7 +61,7 @@ function App() {
             action="post"
             icon="success"
             message="Se agregó producto:"
-            category={category}
+            // category={category}
           />
         )}
         />
@@ -66,7 +70,7 @@ function App() {
             action="post"
             icon="success"
             message="Se edito el producto:"
-            category={category}
+            // category={category}
           />
         )}
         />
