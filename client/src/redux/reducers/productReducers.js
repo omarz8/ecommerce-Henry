@@ -1,12 +1,13 @@
-import { GET_PRODUCTS } from "../actions/actionTypes";
+import { GET_PRODUCTS, GET_PRODUCT, POST_PRODUCT } from "../actions/actionTypes";
 
 const initialState={
-    products: []
+    products: [],
+    productDetail: [],
 }
 
 
 function productReducers(state=initialState, action){
-    console.log(action.products)
+    console.log(action.productDetail)
     switch (action.type) {
         case GET_PRODUCTS:
         return {
@@ -21,6 +22,11 @@ function productReducers(state=initialState, action){
                 enter_date: prod.enter_date
             }))
         }
+        case GET_PRODUCT:
+            return {
+                ...state,
+                productDetail: action.productDetail
+            }
         default:
       return state
     }

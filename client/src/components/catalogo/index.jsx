@@ -8,17 +8,17 @@ import { useSelector, useDispatch } from "react-redux";
 import allActions from "../../redux/actions/allActions";
 
 const Catalogue = () => {
+  /* ===== Redux: productos-categorias ====== */
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   const category = useSelector((state) => state.category.category);
-
   useEffect(() => {
-    // dispatch(allActions.cleanCategory());
     dispatch(allActions.getProducts());
     dispatch(allActions.getCategory());
   }, []);
 
-  console.log(products);
+  /* ======== Categury component menu slide ======= */
+
   const [drop, setDrop] = useState(false);
 
   const toggleMenu = () => {

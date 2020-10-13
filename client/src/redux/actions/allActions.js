@@ -1,11 +1,13 @@
-import {getProducts} from './productActions';
+import {getProducts, getOneProduct} from './productActions';
 import {getCategory, cleanCategory} from './categoryActions';
 
 
 const allActions={
-    getCategory,
     getProducts,
-    cleanCategory
+    getOneProduct,
+    getCategory,
+    cleanCategory,
+    
 }
 
 export default allActions;
