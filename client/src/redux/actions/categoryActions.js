@@ -4,6 +4,7 @@ import * as actionTypes from './actionTypes';
 const url='http://localhost:3001/category';
 
 export const getCategory =()=>(dispatch)=>{
+
     axios.get(url)
         .then((res)=>{
             dispatch({
@@ -13,3 +14,9 @@ export const getCategory =()=>(dispatch)=>{
     
         }).catch((err)=> console.log(err))
 };
+
+export const cleanCategory = () => (dispatch)=>{
+    return {
+        type: actionTypes.CLEAR_ITEMS,
+    }
+}

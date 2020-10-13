@@ -1,10 +1,11 @@
 import {getProducts} from './productActions';
-import {getCategory} from './categoryActions';
+import {getCategory, cleanCategory} from './categoryActions';
 
 
 const allActions={
     getCategory,
-    getProducts
+    getProducts,
+    cleanCategory
 }
 
 export default allActions;

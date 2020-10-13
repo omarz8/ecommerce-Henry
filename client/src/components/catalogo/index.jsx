@@ -13,8 +13,9 @@ const Catalogue = () => {
   const category = useSelector((state) => state.category.category);
 
   useEffect(() => {
-    dispatch(allActions.getProducts(products));
-    dispatch(allActions.getCategory(category));
+    // dispatch(allActions.cleanCategory());
+    dispatch(allActions.getProducts());
+    dispatch(allActions.getCategory());
   }, []);
 
   console.log(products);

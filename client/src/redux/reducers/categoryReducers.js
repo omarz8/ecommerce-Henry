@@ -1,4 +1,4 @@
-import {GET_CATEGORY} from '../actions/actionTypes';
+import {GET_CATEGORY, CLEAR_ITEMS} from '../actions/actionTypes';
 
 const initialState={
     category:[]
@@ -9,8 +9,18 @@ function categoryReducers(state=initialState, action) {
         case GET_CATEGORY:
             return {
                 ...state,
-                category: state.category.concat(action.category)
+                category: action.category.map(cat=>({
+                    name: cat.name,
+                    id: cat.id,
+                    description: cat.description
+                }))
             }
+        case CLEAR_ITEMS: {
+            return {
+                ...state,
+                category: []
+            }
+        }   
             default:
                 return state;
     }
