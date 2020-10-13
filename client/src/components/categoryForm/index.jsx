@@ -81,7 +81,7 @@ const FormCategory = ({ id, name = '', description = '', action, icon, message }
 
             <Button block className='bg-color-primary shadow-primary rounded-pill border-0 mt-5' type='submit'>
               {isSubmitting ? 'Cargando...' :
-                action === 'PUT' ? 'Actualizar categoria' :
+                action === 'put' ? 'Actualizar categoria' :
                   action === 'delete' ? 'Eliminar categoria' :
                     action === 'post' ? 'Agregar categoria' : null}
             </Button>

@@ -1,9 +1,11 @@
 import {getProducts} from './productActions';
-import {getCategory, cleanCategory} from './categoryActions';
+import {getCategory, cleanCategory, putCategory, postCategory} from './categoryActions';
 
 
 const allActions={
     getCategory,
+    putCategory,
+    postCategory,
     getProducts,
     cleanCategory
 }
