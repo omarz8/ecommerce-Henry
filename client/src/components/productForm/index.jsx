@@ -89,8 +89,8 @@ const FormProduct = ({
           //Request al backend
           // apiCall(url, data, null, action)
           dispatch(allActions.postProduct(id, action, values))
+            // corrreg
             .then((response) => {
-              console.log(response);
               resetForm();
               setSubmitting(false);
               Toast.fire({

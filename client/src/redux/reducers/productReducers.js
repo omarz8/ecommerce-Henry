@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, GET_PRODUCT, POST_PRODUCT } from "../actions/actionTypes";
+import { GET_PRODUCTS, GET_PRODUCT, POST_PRODUCT, PUT_PRODUCT, DELETE_PRODUCT } from "../actions/actionTypes";
 
 const initialState={
     products: [],
@@ -31,6 +31,16 @@ function productReducers(state=initialState, action){
             return {
                 ...state,
                 products: action.productDetail
+            }
+        case PUT_PRODUCT:
+            return {
+                ...state,
+                product: action.productDetail
+            }
+        case DELETE_PRODUCT:
+            return {
+                ...state,
+                product: state.filter(prod => prod.id===action.productDetail.id)
             }
         default:
       return state

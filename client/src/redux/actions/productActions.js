@@ -42,13 +42,27 @@ export const postProduct=(id, action, values)=>(dispatch)=>{
     .catch(err=>console.log(err))
 }
 
-export const putProduct=()=>(dispatch)=>{
-  axios
-    .put()
+export const putProduct=(id, action, values)=>(dispatch)=>{
+  return axios
+    .put(url+`/products/${id}`)
     .then(res=>{
+      console.log(res)
       dispatch({
         type: actionTypes.PUT_PRODUCT,
         productDetail: res.data
       })
     })
+    .catch(err=>console.log(err))
+}
+
+export const deleteProduct=(id, action, values)=>dispatch=>{
+  return axios
+  .delete(url+`/products/${id ? id : ""}`, action === "delete" ? null : values)
+  .then(res=>{
+    dispatch({
+      type: actionTypes.DELETE_PRODUCT,
+      productDetail: res.data
+    })
+  })
+  .catch(err=>console.log(err))
 }
