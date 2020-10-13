@@ -7,7 +7,7 @@ const initialState={
 
 
 function productReducers(state=initialState, action){
-    console.log(action.productDetail)
+    console.log(action)
     switch (action.type) {
         case GET_PRODUCTS:
         return {
@@ -26,6 +26,11 @@ function productReducers(state=initialState, action){
             return {
                 ...state,
                 productDetail: action.productDetail
+            }
+        case POST_PRODUCT:
+            return {
+                ...state,
+                products: action.productDetail
             }
         default:
       return state

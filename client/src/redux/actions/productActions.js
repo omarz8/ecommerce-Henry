@@ -30,20 +30,25 @@ export const getOneProduct=(id)=>(dispatch)=>{
   .catch(err=> console.log(err));
 }
 
-
-export const postProduct=()=>(dispatch)=>{
-  axios
-    .post(url+'/admin/product/add', {
-      responseType: 'json'
-    })
+export const postProduct=(id, action, values)=>(dispatch)=>{
+  return axios
+    .post(url+`/products/${id ? id : ""}`, action === "delete" ? null : values)
     .then(res=>{
-      dispatch({
+       dispatch({
         type: actionTypes.POST_PRODUCT,
-        productDetail: {
-
-        }
-      })
+        productDetail: res.data
+      })      
     })
-
+    .catch(err=>console.log(err))
 }
 
+export const putProduct=()=>(dispatch)=>{
+  axios
+    .put()
+    .then(res=>{
+      dispatch({
+        type: actionTypes.PUT_PRODUCT,
+        productDetail: res.data
+      })
+    })
+}

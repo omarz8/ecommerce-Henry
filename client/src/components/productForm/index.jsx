@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./product.css";
 import { Button, Row, Col } from "reactstrap";
 import { Formik, Form } from "formik";
@@ -6,6 +6,8 @@ import * as Yup from "yup";
 import Swal from "sweetalert2";
 import CustomInput from "../custom/input";
 import apiCall from "../../redux/api";
+import { useSelector, useDispatch } from "react-redux";
+import allActions from "../../redux/actions/allActions";
 
 const Toast = Swal.mixin({
   toast: true,
@@ -25,18 +27,23 @@ const FormProduct = ({
   stock = 0,
   description = "",
   price = 0,
-  category,
   image = "",
   action,
   icon,
   message,
 }) => {
+  /* =======Redux Category-Post Products========== */
+  const category = useSelector((state) => state.category.category);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(allActions.getCategory());
+  }, []);
   const categoria = [];
   const categorias = () => {
     return category.map((item) => categoria.push(item.name));
   };
   console.log(categorias());
-  console.log(categoria);
+
   return (
     <Col
       lg="6"
@@ -76,12 +83,14 @@ const FormProduct = ({
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           //Validar url
-          const url = `/products/${id ? id : ""}`;
-          const data = action === "delete" ? null : values;
+          // const url = `/products/${id ? id : ""}`;
+          // const data = action === "delete" ? null : values;
 
           //Request al backend
-          apiCall(url, data, null, action)
+          // apiCall(url, data, null, action)
+          dispatch(allActions.postProduct(id, action, values))
             .then((response) => {
+              console.log(response);
               resetForm();
               setSubmitting(false);
               Toast.fire({
