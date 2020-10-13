@@ -67,7 +67,7 @@ function App() {
         />
         <Route exact path="/admin/product/edit/:productId" render={() => (
           <FormProduct
-            action="post"
+            action="put"
             icon="success"
             message="Se edito el producto:"
             // category={category}
