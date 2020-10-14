@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Category from "../categoria";
 import "./catalogo.css";
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "../productCard/ProductCard";
 import MenuButton from "./button/button.jsx";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
