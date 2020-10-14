@@ -4,7 +4,7 @@ const initialState={
     category:[]
 }
 
-function categoryReducers(state=initialState, action) {
+function categoryReducers(state = initialState, action) {
     switch(action.type) {
         case GET_CATEGORY:
             return {

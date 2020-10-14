@@ -5,11 +5,12 @@ const url='http://localhost:3001';
 
 export const getCategory =()=>(dispatch)=>{
 
-    axios.get(url + '/category/')
+    axios
+        .get(url + '/category/')
         .then((res)=>{
             dispatch({
                 type: actionTypes.GET_CATEGORY,
-                category: res.data.category
+                category: res.data
             })
         })
         .catch((err)=> {
@@ -65,7 +66,7 @@ export const postCategory =(id, action, values)=>(dispatch)=>{
 
 export const deleteCategory =(id)=>(dispatch)=>{
     axios
-    .put(url+ `/category/${id}`)
+    .delete(url+ `/category/${id}`)
     .then((res)=>{
         dispatch({
             type: actionTypes.DELETE_CATEGORY,
