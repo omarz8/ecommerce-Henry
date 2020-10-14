@@ -1,5 +1,5 @@
 import {getProducts, getOneProduct, postProduct} from './productActions';
-import {getCategory, cleanCategory, putCategory, postCategory} from './categoryActions';
+import {getCategory, cleanCategory, putCategory, postCategory, deleteCategory} from './categoryActions';
 
 
 const allActions={
@@ -9,7 +9,9 @@ const allActions={
     getCategory,
     cleanCategory,
     postCategory,
-    putCategory
+    putCategory,
+    deleteCategory
+   // getCategories
     
 }
 

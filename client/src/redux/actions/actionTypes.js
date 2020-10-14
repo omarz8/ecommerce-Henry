@@ -1,5 +1,5 @@
 export const GET_CATEGORY = "GET_CATEGORY";
-// export const GET_CATEGORIES = "GET_CATEGORIES";
+//export const GET_CATEGORIES = "GET_CATEGORIES";
 export const PUT_CATEGORY = "PUT_CATEGORY";
 export const DELETE_CATEGORY = "DELETE_CATEGORY";
 export const POST_CATEGORY = "POST_CATEGORY";
