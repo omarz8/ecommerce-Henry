@@ -32,8 +32,8 @@ import "./producto.css";
 
 const Product = (props) => {
   /* ====== Hooks ======= */
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
+  // const [activeIndex, setActiveIndex] = useState(0);
+  // const [animating, setAnimating] = useState(false);
   const [rating, setRating] = useState(0);
 
   /* ======== Llamo a producto por id  Redux ========== */
@@ -50,6 +50,18 @@ const Product = (props) => {
       rating: newRating,
     });
   };
+  /* ========= Axios-get ========== */
+  useEffect(() => {
+    Axios.get("http://localhost:3001/products/" + id)
+      .then((res) => {
+        console.log(res);
+        return setProduct(res.data.products);
+      })
+      .catch((err) => {
+        return;
+      });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="productContainer">
