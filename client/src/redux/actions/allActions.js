@@ -1,24 +1,12 @@
-import {
-  getProducts,
-  getOneProduct,
-  postProduct,
-  putProduct,
-  deleteProduct,
-} from "./productActions";
+import { getProducts, getOneProduct, editProduct } from "./productActions";
 import { getCategory, cleanCategory } from "./categoryActions";
 
 const allActions = {
   getProducts,
   getOneProduct,
-  postProduct,
-  putProduct,
-  deleteProduct,
+  editProduct,
   getCategory,
   cleanCategory,
-  postCategory,
-  putCategory,
-  deleteCategory,
-  // getCategories
 };
 
 export default allActions;

@@ -8,6 +8,7 @@ import CustomInput from "../custom/input";
 import apiCall from "../../redux/api";
 import { useSelector, useDispatch } from "react-redux";
 import allActions from "../../redux/actions/allActions";
+import { useParams } from "react-router-dom";
 
 const Toast = Swal.mixin({
   toast: true,
@@ -88,7 +89,10 @@ const FormProduct = ({
 
           //Request al backend
           // apiCall(url, data, null, action)
-          dispatch(allActions.postProduct(id, action, values))
+          console.log(action);
+          console.log(values);
+          console.log(id);
+          dispatch(allActions.editProduct(id, action, values))
             // corrreg
             .then((response) => {
               resetForm();
