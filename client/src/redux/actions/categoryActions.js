@@ -30,11 +30,7 @@ export const getCategory =()=>(dispatch)=>{
 //         }).catch((err)=> console.log(err))
 // };
 
-export const cleanCategory = () => (dispatch)=>{
-    return {
-        type: actionTypes.CLEAR_ITEMS,
-    }
-}
+
 
 export const putCategory =(id)=>(dispatch)=>{
     axios
@@ -50,9 +46,9 @@ export const putCategory =(id)=>(dispatch)=>{
     }) 
 };
 
-export const postCategory =(id, action, values)=>(dispatch)=>{
+export const postCategory =(id, values)=>(dispatch)=>{
     axios
-    .post(url+`/category/${id ? id : ""}`, action === "delete" ? null : values)
+    .post(url+`/category/${id ? id : ""}`, values)
     .then((res)=>{
         dispatch({
             type: actionTypes.POST_CATEGORY,
@@ -70,7 +66,7 @@ export const deleteCategory =(id)=>(dispatch)=>{
     .then((res)=>{
         dispatch({
             type: actionTypes.DELETE_CATEGORY,
-            category: res.data
+            category: null
         })
     }).catch((err)=> {
         console.log(err)
